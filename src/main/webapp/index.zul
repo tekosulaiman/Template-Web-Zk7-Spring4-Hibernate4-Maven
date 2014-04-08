@@ -1,0 +1,49 @@
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<window title="Form Employee" border="normal" width="550px" position="center" mode="modal" apply="org.zkoss.bind.BindComposer" viewModel="@id('vm') @init('co.id.vm.EmployeeVM')">
+	<zk>
+		<toolbar>
+			<toolbarbutton label="Save"/>
+			<toolbarbutton label="Update"/>
+			<toolbarbutton label="Delete"/>
+			<toolbarbutton label="Refresh"/>
+			<toolbarbutton label="Print"/>
+		</toolbar>
+		
+		<grid>
+			<columns>
+				<column/>
+				<column/>
+			</columns>
+			<rows>
+				<row>	
+					<label value="ID"/>
+					<textbox/>
+				</row>
+				<row>	
+					<label value="Name"/>
+					<textbox/>
+				</row>
+				<row>	
+					<label value="Address"/>
+					<textbox/>
+				</row>
+			</rows>
+		</grid>
+	
+		<listbox model="@bind(vm.employees)">
+		<listhead>
+			<listheader label="ID" sort="auto" />
+			<listheader label="Name" sort="auto" />
+			<listheader label="Address" sort="auto" />
+		</listhead>
+		<template name="model" var="item">
+		<listitem>
+			<listcell label="@bind(item.id)"/>				
+			<listcell label="@bind(item.name)"/>				
+			<listcell label="@bind(item.address)"/>				
+		</listitem>
+		</template>
+	</listbox>
+
+	</zk>
+</window>
